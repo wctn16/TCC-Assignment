@@ -24,6 +24,16 @@ export class RegisterComponent {
 
   errorMessage = signal('');
   isLoading = signal(false);
+  showPassword = signal(false);
+  showConfirmPassword = signal(false);
+
+  togglePassword(): void {
+    this.showPassword.update(v => !v);
+  }
+
+  toggleConfirmPassword(): void {
+    this.showConfirmPassword.update(v => !v);
+  }
 
   form = this.fb.group({
     username: ['', [Validators.required]],
@@ -46,7 +56,6 @@ export class RegisterComponent {
     this.errorMessage.set('');
 
     const { username, password, confirmPassword } = this.form.value;
-
     this.auth.register({
       username: username!,
       password: password!,
@@ -54,11 +63,11 @@ export class RegisterComponent {
     }).subscribe({
       next: () => {
         this.isLoading.set(false);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/Login']);
       },
       error: (err) => {
         this.isLoading.set(false);
-        this.errorMessage.set(err?.error?.message || 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+        this.errorMessage.set(err?.error?.message || 'Registration failed. Please try again.');
       }
     });
   }

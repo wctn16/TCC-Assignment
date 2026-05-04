@@ -16,7 +16,7 @@ export const routes: Routes = [
   {
     path: 'welcome',
     loadComponent: () =>
-      import('./pages/welcome/welcome.component').then(m => m.WelcomeComponent),
+      import('./pages/homepage/homepage.component').then(m => m.WelcomeComponent),
     canActivate: [authGuard]
   },
   { path: '**', redirectTo: 'login' }

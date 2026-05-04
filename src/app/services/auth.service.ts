@@ -23,7 +23,7 @@ export interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:5000/api/auth';
+  private readonly apiUrl = 'http://localhost:5043/api/auth';
   private readonly TOKEN_KEY = 'jwt_token';
   private readonly USERNAME_KEY = 'username';
 
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   register(data: RegisterRequest): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/register`, data);
+    return this.http.post<void>(`${this.apiUrl}/Register`, data);
   }
 
   saveSession(res: AuthResponse): void {

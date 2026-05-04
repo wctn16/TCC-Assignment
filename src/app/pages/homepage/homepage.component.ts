@@ -6,8 +6,8 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-welcome',
   standalone: true,
   imports: [],
-  templateUrl: './welcome.component.html',
-  styleUrl: './welcome.component.css'
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.css']
 })
 export class WelcomeComponent implements OnInit {
   private auth = inject(AuthService);

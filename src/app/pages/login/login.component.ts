@@ -18,6 +18,11 @@ export class LoginComponent {
 
   errorMessage = signal('');
   isLoading = signal(false);
+  showPassword = signal(false);
+
+  togglePassword(): void {
+    this.showPassword.update(v => !v);
+  }
 
   form = this.fb.group({
     username: ['', [Validators.required]],
@@ -39,7 +44,7 @@ export class LoginComponent {
       },
       error: (err) => {
         this.isLoading.set(false);
-        this.errorMessage.set(err?.error?.message || 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+        this.errorMessage.set(err?.error?.message || 'Username or Password is incorrect');
       }
     });
   }
