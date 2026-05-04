@@ -63,11 +63,11 @@ export class RegisterComponent {
     }).subscribe({
       next: () => {
         this.isLoading.set(false);
-        this.router.navigate(['/Login']);
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         this.isLoading.set(false);
-        this.errorMessage.set(err?.error?.message || 'Registration failed. Please try again.');
+        this.errorMessage.set(err?.error?.message || 'ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง');
       }
     });
   }

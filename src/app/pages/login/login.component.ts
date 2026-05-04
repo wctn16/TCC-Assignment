@@ -40,11 +40,11 @@ export class LoginComponent {
     this.auth.login({ username: username!, password: password! }).subscribe({
       next: () => {
         this.isLoading.set(false);
-        this.router.navigate(['/welcome']);
+        this.router.navigate(['home']);
       },
       error: (err) => {
         this.isLoading.set(false);
-        this.errorMessage.set(err?.error?.message || 'Username or Password is incorrect');
+        this.errorMessage.set(err?.error?.message || 'Username or Password ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง');
       }
     });
   }
